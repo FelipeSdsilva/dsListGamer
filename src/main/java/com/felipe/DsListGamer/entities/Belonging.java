@@ -38,7 +38,7 @@ public class Belonging {
 
 	public void setPosition(Integer position) {
 		this.position = position;
-	}
+	} 
 
 	@Override
 	public int hashCode() {
