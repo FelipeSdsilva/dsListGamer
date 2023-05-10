@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.felipe.DsListGamer.entities.Game;
 
-public class GameDtoMin implements Serializable {
+public class GameMinDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
@@ -13,10 +13,10 @@ public class GameDtoMin implements Serializable {
 	private String imgUrl;
 	private String shortDescription;
 
-	public GameDtoMin() {
+	public GameMinDTO() {
 	}
 
-	public GameDtoMin(Game entity) {
+	public GameMinDTO(Game entity) {
 		id = entity.getId();
 		title = entity.getTitle();
 		year = entity.getYear();
