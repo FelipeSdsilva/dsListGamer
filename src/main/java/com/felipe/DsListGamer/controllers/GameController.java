@@ -16,21 +16,20 @@ import com.felipe.DsListGamer.services.GameService;
 @RestController
 @RequestMapping(value = "/games")
 public class GameController {
-	
+
 	@Autowired
 	private GameService service;
-	
+
 	@GetMapping
-	public ResponseEntity<List<GameMinDTO>> findAll(){
-		 List<GameMinDTO> listGame = service.listAll();
-		 return ResponseEntity.ok().body(listGame);
-	}
-	
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<GameDTO> findById(@PathVariable Long id){
-		 GameDTO game = service.findById(id);
-		 return ResponseEntity.ok().body(game);
+	public ResponseEntity<List<GameMinDTO>> findAll() {
+		List<GameMinDTO> listGame = service.listAll();
+		return ResponseEntity.ok().body(listGame);
 	}
 
-	
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<GameDTO> findById(@PathVariable Long id) {
+		GameDTO game = service.findById(id);
+		return ResponseEntity.ok().body(game);
+	}
+
 }
