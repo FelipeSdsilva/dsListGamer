@@ -1,18 +1,15 @@
 package com.felipe.DsListGamer.controllers;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.felipe.DsListGamer.dto.GameListDTO;
 import com.felipe.DsListGamer.dto.GameMinDTO;
+import com.felipe.DsListGamer.dto.ReplacementDTO;
 import com.felipe.DsListGamer.services.GameListService;
 import com.felipe.DsListGamer.services.GameService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/lists")
@@ -35,6 +32,11 @@ public class GameListController {
 		 List<GameMinDTO> listGames = gameService.findByList(listId);
 		 return ResponseEntity.ok().body(listGames);
 	}
-	
+
+	@PostMapping(value = "{listId}/replacement")
+	public void move(@PathVariable Long listId, @RequestBody ReplacementDTO dto){
+		service.move(listId, dto.getSourceIndex(), dto.getDestinationIndex());
+	}
+
 
 }
